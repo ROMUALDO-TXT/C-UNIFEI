@@ -1,0 +1,119 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[p mainexit ]
+"4 ./stdio.h
+[; ;./stdio.h: 4:     void printf(char msg[]);
+[v _printf `(v ~T0 @X0 0 ef1`*uc ]
+"26 ./config.h
+[p x OSC=HS                   ]
+"27
+[p x FCMEN  =  OFF ]
+"28
+[p x IESO  =  OFF ]
+"29
+[p x PWRT  =  OFF ]
+"30
+[p x BOREN  =  OFF ]
+"31
+[p x BORV  =  46 ]
+"32
+[p x WDT=OFF                  ]
+"33
+[p x WDTPS  =  1                ]
+"34
+[p x MCLRE=ON                 ]
+"35
+[p x LPT1OSC  =  OFF ]
+"36
+[p x PBADEN  =  ON ]
+"37
+[p x CCP2MX  =  PORTC ]
+"38
+[p x STVREN  =  OFF ]
+"39
+[p x LVP=OFF                  ]
+"40
+[p x XINST  =  OFF ]
+"41
+[p x DEBUG  =  OFF              ]
+"43
+[p x CP0  =  OFF ]
+"44
+[p x CP1  =  OFF ]
+"45
+[p x CP2  =  OFF ]
+"46
+[p x CP3  =  OFF ]
+"47
+[p x CPB  =  OFF ]
+"48
+[p x CPD  =  OFF ]
+"50
+[p x WRT0  =  OFF ]
+"51
+[p x WRT1  =  OFF ]
+"52
+[p x WRT2  =  OFF ]
+"53
+[p x WRT3  =  OFF ]
+"54
+[p x WRTB  =  OFF ]
+"55
+[p x WRTC  =  OFF ]
+"56
+[p x WRTD  =  OFF ]
+"58
+[p x EBTR0  =  OFF ]
+"59
+[p x EBTR1  =  OFF ]
+"60
+[p x EBTR2  =  OFF ]
+"61
+[p x EBTR3  =  OFF ]
+"62
+[p x EBTRB  =  OFF ]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"5 main.c
+[; ;main.c: 5: void main(void) {
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+[v F5 `uc ~T0 @X0 -> 16 `i s ]
+[i F5
+:U ..
+"6
+[; ;main.c: 6:     char msg[16]= "abcdefg\nhjklmno";
+-> 97 `c
+-> 98 `c
+-> 99 `c
+-> 100 `c
+-> 101 `c
+-> 102 `c
+-> 103 `c
+-> 10 `c
+-> 104 `c
+-> 106 `c
+-> 107 `c
+-> 108 `c
+-> 109 `c
+-> 110 `c
+-> 111 `c
+-> 0 `c
+..
+]
+[v _msg `uc ~T0 @X0 -> 16 `i a ]
+[e = _msg F5 ]
+"7
+[; ;main.c: 7:     printf(msg);
+[e ( _printf (1 &U _msg ]
+"8
+[; ;main.c: 8:     for(;;);
+{
+[e :U 2 ]
+[e $U 2  ]
+[e :U 3 ]
+}
+"9
+[; ;main.c: 9: }
+[e :UE 1 ]
+}

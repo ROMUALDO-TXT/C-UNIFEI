@@ -1,0 +1,62 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"8 ./lcd.h
+[; ;./lcd.h: 8:   void lcdInit(void);
+[v _lcdInit `(v ~T0 @X0 0 ef ]
+"3
+[; ;./lcd.h: 3:   void lcdCommand(char value);
+[v _lcdCommand `(v ~T0 @X0 0 ef1`uc ]
+"4
+[; ;./lcd.h: 4:   void lcdChar(char value);
+[v _lcdChar `(v ~T0 @X0 0 ef1`uc ]
+"4 stdio.c
+[; ;stdio.c: 4: void printf(char msg[]){
+[v _printf `(v ~T0 @X0 1 ef1`*uc ]
+{
+[e :U _printf ]
+[v _msg `*uc ~T0 @X0 1 r1 ]
+[f ]
+"5
+[; ;stdio.c: 5:     lcdInit();
+[e ( _lcdInit ..  ]
+"6
+[; ;stdio.c: 6:     char i;
+[v _i `uc ~T0 @X0 1 a ]
+"7
+[; ;stdio.c: 7:     for(i=0; i < 15; i++){
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 15 `i 2  ]
+[e $U 3  ]
+[e :U 2 ]
+{
+"8
+[; ;stdio.c: 8:         if(msg[i] == '\n'){
+[e $ ! == -> *U + _msg * -> _i `ux -> -> # *U _msg `ui `ux `ui -> 10 `ui 5  ]
+{
+"9
+[; ;stdio.c: 9:             lcdCommand(0xc0);
+[e ( _lcdCommand (1 -> -> 192 `i `uc ]
+"10
+[; ;stdio.c: 10:         }else{
+}
+[e $U 6  ]
+[e :U 5 ]
+{
+"11
+[; ;stdio.c: 11:             lcdChar(msg[i]);
+[e ( _lcdChar (1 *U + _msg * -> _i `ux -> -> # *U _msg `ui `ux ]
+"12
+[; ;stdio.c: 12:         }
+}
+[e :U 6 ]
+"13
+[; ;stdio.c: 13:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 15 `i 2  ]
+[e :U 3 ]
+}
+"14
+[; ;stdio.c: 14: }
+[e :UE 1 ]
+}
